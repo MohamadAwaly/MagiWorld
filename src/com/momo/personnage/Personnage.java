@@ -7,9 +7,11 @@ public abstract class Personnage {
     private int force;
     private int agilite;
     private int intelligence;
+    private static int nbrJoueur;
 
     //Constructeur vide
     public Personnage() {
+        nbrJoueur++;
     }
 
     // Constructeur avec des paramètre
@@ -20,9 +22,12 @@ public abstract class Personnage {
         this.force = force;
         this.agilite = agilite;
         this.intelligence = intelligence;
+        nbrJoueur++;
     }
+
     public abstract void attaqueBasic();
-    public abstract void attaqueSpeciale( );
+
+    public abstract void attaqueSpeciale();
 
     public int getNiveau() {
         return niveau;
@@ -45,6 +50,7 @@ public abstract class Personnage {
     }
 
     public void setNiveau(int niveau) {
+
         this.niveau = niveau;
     }
 
@@ -62,5 +68,15 @@ public abstract class Personnage {
 
     public void setIntelligence(int intelligence) {
         this.intelligence = intelligence;
+    }
+
+    @Override
+    public String toString() {
+        return "Joueur " + nbrJoueur +
+                ", niveau " + niveau +
+                " je possède " + vie + " de vitalité, " +
+                force + " de force " +
+                agilite + " d'agilite " +
+                "et " + intelligence + " d'intelligence ";
     }
 }
